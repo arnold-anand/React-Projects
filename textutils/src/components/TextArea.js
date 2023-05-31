@@ -34,7 +34,7 @@ export default function TextArea(props) {
         <div className='my-5 space-y-1'>
             <div className="text-3xl">Your Text Summary</div>
             <br />
-            <div>{text.split(" ").length} words and {text.length} characters</div>
+            <div>{text===""? text.split(" ").length-1 : text.split(" ").length} words and {text.length} characters</div>
             <div>{text.split(" ").length * 0.008} Minutes taken to read</div>
             <div className='text-3xl'>Preview</div>
             <div>{text}</div>
