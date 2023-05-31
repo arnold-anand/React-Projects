@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 export default function TextArea(props) {
-    const [text, setText] = useState("Enter text here")
+    const [text, setText] = useState("")
+    const [isActive, setIsActive] = useState(false)
     const handleUppercase = () =>{
         let newText = text.toUpperCase()
         setText(newText)
@@ -19,8 +20,11 @@ export default function TextArea(props) {
     const handleOnChange = (event) =>{
         setText(event.target.value)
     }
+  const handleDarkMode = () => {
+    setIsActive(!isActive)
+  };
   return (
-    <div className='flex justify-center items-center'>
+    <div className={`flex justify-center items-center duration-300 ${isActive ? 'bg-[#222] text-white' : ''}`}>
     <div className='flex justify-center flex-col w-96'>
         <div className='text-3xl'>{props.heading}</div>
         <textarea onChange={handleOnChange} className='border border-blue-300 m-2' name="" id="" cols="80" rows="10" value={text}></textarea>
@@ -35,7 +39,9 @@ export default function TextArea(props) {
             <div className='text-3xl'>Preview</div>
             <div>{text}</div>
         </div>
+        <button onClick={handleDarkMode} className='m-2 border p-2 border-blue-300 rounded-lg'>Enable Dark Mode </button>
     </div>
+
     </div>
   )
 }
