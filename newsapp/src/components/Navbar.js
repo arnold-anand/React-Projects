@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-
+import {Link} from 'react-router-dom';
 export default class Navbar extends Component {
   render() {
     return (
         <header class="text-white bg-blue-900 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a href="/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+    <Link to="/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
       <span class="ml-3 text-xl">NewsMonkey</span>
-    </a>
+    </Link>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a href="/" className="mr-5 hover:text-gray-300">Home</a>
-      <a href="/about" className="mr-5 hover:text-gray-300">About</a>
+      <Link to="/" className="mr-5 hover:text-gray-300">Home</Link>
+      <Link to="/" className="mr-5 hover:text-gray-300">About</Link>
       <ul className="flex space-x-3">
-      <li><a className="hover:text-gray-300" href="/">Business</a></li>
-      <li><a className="hover:text-gray-300" href="/">Entertainment</a></li>
-      <li><a className="hover:text-gray-300" href="/">General</a></li>
-      <li><a className="hover:text-gray-300" href="/">Health</a></li>
-      <li><a className="hover:text-gray-300" href="/">Science</a></li>
-      <li><a className="hover:text-gray-300" href="/">Sports</a></li>
-      <li><a className="hover:text-gray-300" href="/">Technology</a></li>
+      <li><Link className="hover:text-gray-300" to="/business">Business</Link></li>
+      <li><Link className="hover:text-gray-300" to="/entertainment">Entertainment</Link></li>
+      <li><Link className="hover:text-gray-300" to="/general">General</Link></li>
+      <li><Link className="hover:text-gray-300" to="/health">Health</Link></li>
+      <li><Link className="hover:text-gray-300" to="/science">Science</Link></li>
+      <li><Link className="hover:text-gray-300" to="/sports">Sports</Link></li>
+      <li><Link className="hover:text-gray-300" to="/technology">Technology</Link></li>
       </ul>
 
     </nav>

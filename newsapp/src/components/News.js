@@ -11,6 +11,7 @@ export default class News extends Component {
     };
   }
   async componentDidMount() {
+    this.setState({ loading: true });
     let url =
       `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=45d0219335c54033a1a0442f41028c75&page=1&pageSize=12`;
     let data = await fetch(url);
@@ -18,6 +19,7 @@ export default class News extends Component {
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
+      loading: false
     });
   }
   handlePrevClick = async () => {
