@@ -9,8 +9,18 @@ export default class Navbar extends Component {
       <span class="ml-3 text-xl">NewsMonkey</span>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a href="/" class="mr-5 hover:text-gray-900">Home</a>
-      <a href="/about" class="mr-5 hover:text-gray-900">About</a>
+      <a href="/" className="mr-5 hover:text-gray-300">Home</a>
+      <a href="/about" className="mr-5 hover:text-gray-300">About</a>
+      <ul className="flex space-x-3">
+      <li><a className="hover:text-gray-300" href="/">Business</a></li>
+      <li><a className="hover:text-gray-300" href="/">Entertainment</a></li>
+      <li><a className="hover:text-gray-300" href="/">General</a></li>
+      <li><a className="hover:text-gray-300" href="/">Health</a></li>
+      <li><a className="hover:text-gray-300" href="/">Science</a></li>
+      <li><a className="hover:text-gray-300" href="/">Sports</a></li>
+      <li><a className="hover:text-gray-300" href="/">Technology</a></li>
+      </ul>
+
     </nav>
 
   </div>
