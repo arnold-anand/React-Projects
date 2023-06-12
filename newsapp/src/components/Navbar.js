@@ -1,30 +1,84 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-export default class Navbar extends Component {
+import { Link } from "react-router-dom";
+
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mobileMenuVisible: false
+    };
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  toggleMenu() {
+    this.setState((prevState) => ({
+      mobileMenuVisible: !prevState.mobileMenuVisible
+    }));
+  }
+
   render() {
+    const { mobileMenuVisible } = this.state;
+
     return (
-        <header class="text-white bg-blue-900 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <Link to="/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-      <span class="ml-3 text-xl">NewsMonkey</span>
-    </Link>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <Link to="/" className="mr-5 hover:text-gray-300">Home</Link>
-      <Link to="/" className="mr-5 hover:text-gray-300">About</Link>
-      <ul className="flex space-x-3">
-      <li><Link className="hover:text-gray-300" to="/business">Business</Link></li>
-      <li><Link className="hover:text-gray-300" to="/entertainment">Entertainment</Link></li>
-      <li><Link className="hover:text-gray-300" to="/general">General</Link></li>
-      <li><Link className="hover:text-gray-300" to="/health">Health</Link></li>
-      <li><Link className="hover:text-gray-300" to="/science">Science</Link></li>
-      <li><Link className="hover:text-gray-300" to="/sports">Sports</Link></li>
-      <li><Link className="hover:text-gray-300" to="/technology">Technology</Link></li>
-      </ul>
-
-    </nav>
-
-  </div>
-</header>
+      <>
+        <header className="text-white bg-blue-900 body-font">
+          <div className="flex justify-between items-center p-2">
+            <div className="text-2xl p-2">NewsMonkey</div>
+            <button className="md:hidden" id="hamburger" onClick={this.toggleMenu}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                />
+              </svg>
+            </button>
+            <ul className="hidden md:flex space-x-2">
+              <NavItem to="/" label="Home" />
+              <NavItem to="/" label="About" />
+              <NavItem to="/business" label="Business" />
+              <NavItem to="/entertainment" label="Entertainment" />
+              <NavItem to="/general" label="General" />
+              <NavItem to="/health" label="Health" />
+              <NavItem to="/science" label="Science" />
+              <NavItem to="/sports" label="Sports" />
+              <NavItem to="/technology" label="Technology" />
+            </ul>
+          </div>
+        </header>
+        <div id="mobile-menu" className={mobileMenuVisible ? "block md:hidden" : "hidden"}>
+          <nav className="p-2">
+            <ul className="flex-col space-y-3">
+              <NavItem to="/" label="Home" />
+              <NavItem to="/" label="About" />
+              <NavItem to="/business" label="Business" />
+              <NavItem to="/entertainment" label="Entertainment" />
+              <NavItem to="/general" label="General" />
+              <NavItem to="/health" label="Health" />
+              <NavItem to="/science" label="Science" />
+              <NavItem to="/sports" label="Sports" />
+              <NavItem to="/technology" label="Technology" />
+            </ul>
+          </nav>
+        </div>
+      </>
     );
   }
 }
+
+const NavItem = ({ to, label }) => (
+  <li>
+    <Link to={to} className="hover:text-blue-500">
+      {label}
+    </Link>
+  </li>
+);
+
+export default Navbar;
