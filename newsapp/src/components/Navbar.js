@@ -66,6 +66,7 @@ class Navbar extends Component {
               <NavItem to="/sports" label="Sports" />
               <NavItem to="/technology" label="Technology" />
               <NavItem to="/technology" label="Technology" />
+              <NavItem to="/technology" label="Technology" />
             </ul>
           </nav>
         </div>
